@@ -1,16 +1,69 @@
-// src/components/Resume.tsx
 import React from 'react';
 import { config } from '../config';
-import { motion } from 'framer-motion';
 
 const Resume: React.FC = () => (
-  <motion.section initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} className="py-20 container mx-auto px-6">
-    <h2 className="text-4xl font-bold mb-12 text-center">Resume</h2>
-    <div className="max-w-2xl mx-auto text-center">
-      <iframe src={config.resume} className="w-full h-96 border-0 rounded-lg shadow-xl" title="Resume" />
-      <p className="mt-4 text-sm">Or <a href={config.resume} download className="text-blue-500 underline">download PDF</a>.</p>
+  <section id="resume" style={{ background: '#f3f0ff', minHeight: '100vh', padding: '100px 0' }}>
+    <div className="container">
+      <h2 className="section-title">Resume</h2>
+
+      {/* Buttons */}
+      <div style={{
+        textAlign: 'center',
+        marginBottom: '2rem',
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '1rem',
+        flexWrap: 'wrap'
+      }}>
+        <a
+          href={config.resume}
+          download="ChrisPannapara_Resume.pdf"
+          className="btn-primary"
+        >
+          📥 Download PDF
+        </a>
+        <a
+          href={config.resumeViewer}
+          target="_blank"
+          rel="noreferrer"
+          className="btn-outline"
+        >
+          🔗 Open in New Tab
+        </a>
+      </div>
+
+      {/* Google Docs Viewer - renders PDF reliably in all browsers */}
+      <div style={{
+        borderRadius: 16,
+        overflow: 'hidden',
+        boxShadow: '0 20px 60px rgba(108, 99, 255, 0.2)',
+        background: '#fff',
+        maxWidth: 900,
+        margin: '0 auto',
+      }}>
+        <iframe
+          src={config.resumeViewer}
+          title="Chris Pannapara Resume"
+          width="100%"
+          height="900px"
+          style={{ display: 'block', border: 'none' }}
+          allow="autoplay"
+        />
+      </div>
+
+      <p style={{ textAlign: 'center', marginTop: '1rem', fontSize: '0.85rem', opacity: 0.6 }}>
+        Can't see it?{' '}
+        <a
+          href={config.resumeViewer}
+          target="_blank"
+          rel="noreferrer"
+          style={{ color: '#6c63ff' }}
+        >
+          Open in new tab ↗
+        </a>
+      </p>
     </div>
-  </motion.section>
+  </section>
 );
 
 export default Resume;
