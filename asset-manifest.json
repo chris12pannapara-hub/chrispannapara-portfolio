@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/css/main.94c15e91.css",
-    "main.js": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/js/main.7ee2feb8.js",
-    "index.html": "/chris12pannapara-hub/chrispannapara-portfolio.git/index.html",
-    "main.94c15e91.css.map": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/css/main.94c15e91.css.map",
-    "main.7ee2feb8.js.map": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/js/main.7ee2feb8.js.map"
+    "main.css": "/chrispannapara-portfolio/static/css/main.94c15e91.css",
+    "main.js": "/chrispannapara-portfolio/static/js/main.7ee2feb8.js",
+    "index.html": "/chrispannapara-portfolio/index.html",
+    "main.94c15e91.css.map": "/chrispannapara-portfolio/static/css/main.94c15e91.css.map",
+    "main.7ee2feb8.js.map": "/chrispannapara-portfolio/static/js/main.7ee2feb8.js.map"
   },
   "entrypoints": [
     "static/css/main.94c15e91.css",
