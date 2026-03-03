@@ -4,7 +4,7 @@ export const config = {
   location: 'Toronto, ON, Canada',
   email: 'chris12pannapara@gmail.com',
   linkedin: 'https://www.linkedin.com/in/chrispannapara',
-  github: 'https://github.com/chrispannapara-hub',
+  github: 'https://github.com/chris12pannapara-hub',
   resume: '/resume.pdf',
   resumeViewer: 'https://drive.google.com/file/d/1hIJO3i13c612K8tVL0VO3N20yLzkIJxn/preview',
   about: `Results-driven  software  engineer  with 4+ years of experience designing and implementing production-grade microservices, distributed 
