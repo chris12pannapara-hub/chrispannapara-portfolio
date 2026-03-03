@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/css/main.5bf05116.css",
-    "main.js": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/js/main.60d8d1fb.js",
-    "static/js/453.3816a514.chunk.js": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/js/453.3816a514.chunk.js",
+    "main.css": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/css/main.94c15e91.css",
+    "main.js": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/js/main.7ee2feb8.js",
     "index.html": "/chris12pannapara-hub/chrispannapara-portfolio.git/index.html",
-    "main.5bf05116.css.map": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/css/main.5bf05116.css.map",
-    "main.60d8d1fb.js.map": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/js/main.60d8d1fb.js.map",
-    "453.3816a514.chunk.js.map": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/js/453.3816a514.chunk.js.map"
+    "main.94c15e91.css.map": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/css/main.94c15e91.css.map",
+    "main.7ee2feb8.js.map": "/chris12pannapara-hub/chrispannapara-portfolio.git/static/js/main.7ee2feb8.js.map"
   },
   "entrypoints": [
-    "static/css/main.5bf05116.css",
-    "static/js/main.60d8d1fb.js"
+    "static/css/main.94c15e91.css",
+    "static/js/main.7ee2feb8.js"
   ]
 }
