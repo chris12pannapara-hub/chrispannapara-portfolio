@@ -4,9 +4,10 @@ import { config } from '../config';
 const Hero: React.FC = () => {
   return (
     <section id="home" style={{
-      minHeight: '100vh', display: 'flex', alignItems: 'center',
+      minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       position: 'relative', overflow: 'hidden',
+      paddingTop: '64px',
     }}>
       {/* Animated blobs */}
       {[...Array(5)].map((_, i) => (
@@ -20,13 +21,13 @@ const Hero: React.FC = () => {
         }} />
       ))}
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1, paddingBottom: '3rem' }}>
         <div style={{ color: 'white' }}>
-          <p style={{ fontSize: '1.1rem', fontWeight: 500, marginBottom: '1rem', opacity: 0.85, letterSpacing: '0.1em' }}>
+          <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', fontWeight: 500, marginBottom: '1rem', opacity: 0.85, letterSpacing: '0.1em' }}>
             👋 Hi, I'm
           </p>
           <h1 style={{
-            fontSize: 'clamp(3rem, 8vw, 5.5rem)',
+            fontSize: 'clamp(2rem, 8vw, 5.5rem)',
             fontWeight: 800,
             lineHeight: 1.1,
             marginBottom: '1.5rem',
@@ -35,18 +36,24 @@ const Hero: React.FC = () => {
             {config.name}
           </h1>
           <h2 style={{
-            fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
+            fontSize: 'clamp(1rem, 3vw, 1.8rem)',
             fontWeight: 400,
             opacity: 0.9,
             marginBottom: '1rem',
             maxWidth: 600,
+            lineHeight: 1.4,
           }}>
             {config.title}
           </h2>
-          <p style={{ fontSize: '1rem', opacity: 0.75, marginBottom: '2.5rem' }}>
+          <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1rem)', opacity: 0.75, marginBottom: '2.5rem' }}>
             📍 {config.location}
           </p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ 
+            display: 'flex', 
+            gap: '1rem', 
+            flexWrap: 'wrap',
+            flexDirection: window.innerWidth < 640 ? 'column' : 'row',
+          }}>
             <a href="#projects" className="btn-primary" style={{ background: 'white', color: '#6c63ff' }}>
               View My Work →
             </a>
@@ -64,6 +71,19 @@ const Hero: React.FC = () => {
         @keyframes float {
           from { transform: translateY(0px) rotate(0deg); }
           to { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        @media (max-width: 640px) {
+          .btn-primary,
+          .btn-outline {
+            width: 100%;
+            justify-content: center;
+          }
+
+          #home {
+            padding-top: 80px;
+            min-height: 100vh;
+          }
         }
       `}</style>
     </section>

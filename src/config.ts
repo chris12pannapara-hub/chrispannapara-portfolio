@@ -1,3 +1,5 @@
+import Education from "./components/Education";
+
 export const config = {
   name: 'Chris Pannapara',
   title: 'Full-Stack Developer & QA Automation Engineer',
@@ -23,14 +25,34 @@ strategies and large-scale orchestration solutions. .`,
     {
       title: 'Application Developer',
       company: 'ADP',
-      date: '2024 - 2025',
+      date: 'July 2024 - July 2025',
       desc: 'Built and maintained REST APIs, automated test suites with Selenium/Playwright, managed Jenkins CI/CD pipelines, and developed React frontend components.',
     },
     {
       title: 'Associate Application Developer',
       company: 'ADP',
-      date: '2021 - 2024',
+      date: 'June 2021 - July 2024',
       desc: 'Developed Java microservices, implemented OAuth/JWT authentication, and built Node.js automation test frameworks for enterprise-grade applications.',
+    },
+        {
+      title: 'Global Product and Technology Intern',
+      company: 'ADP',
+      date: 'June 2020 - August 2020',
+      desc: 'Automated extraction of TIN and address data from tax forms using Python, Camelot, and image processing libraries.',
+    },
+  ],
+    Education: [
+    {
+      title: 'Masters Of Science in Information Systems',
+      school: 'Stevens Institute of Technology',
+      date: '2019 - 2021',
+      location: 'New Jersey, USA',
+    },
+    {
+      title: 'Bachelors in Computer Engineering',
+      school: 'University Of Mumbai',
+      date: '2012 - 2016',
+      location: 'Mumabi, India',
     },
   ],
   projects: [

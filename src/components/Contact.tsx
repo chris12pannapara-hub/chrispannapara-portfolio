@@ -17,13 +17,13 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" style={{ minHeight: '100vh', padding: '100px 0', background: '#0d1117' }}>
+    <section id="contact" style={{ minHeight: '100vh', padding: 'clamp(50px, 10vw, 100px) 0', background: '#0d1117' }}>
       <div className="container">
         <h2 className="section-title" style={{ color: '#e6edf3' }}>Get In Touch</h2>
         <p style={{
           textAlign: 'center',
           color: '#8b949e',
-          fontSize: '1.05rem',
+          fontSize: 'clamp(0.95rem, 2vw, 1.05rem)',
           maxWidth: 500,
           margin: '0 auto 3rem',
           lineHeight: 1.7
@@ -34,8 +34,8 @@ const Contact: React.FC = () => {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '4rem',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 90vw, 400px), 1fr))',
+          gap: 'clamp(2rem, 5vw, 4rem)',
           alignItems: 'start',
           maxWidth: 900,
           margin: '0 auto'
@@ -43,7 +43,7 @@ const Contact: React.FC = () => {
 
           {/* Left — Contact Info */}
           <div>
-            <h3 style={{ color: '#e6edf3', fontSize: '1.3rem', fontWeight: 700, marginBottom: '2rem' }}>
+            <h3 style={{ color: '#e6edf3', fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)', fontWeight: 700, marginBottom: '2rem' }}>
               Contact Info
             </h3>
 

@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { config } from '../config';
 
-const Resume: React.FC = () => (
-  <section id="resume" style={{ background: '#f3f0ff', minHeight: '100vh', padding: '100px 0' }}>
+const Resume: React.FC = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDark(document.body.classList.contains('dark'));
+    };
+
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+  <section id="resume" style={{ 
+    background: isDark ? 'var(--bg-dark)' : '#f3f0ff', 
+    minHeight: '100vh', 
+    padding: '100px 0',
+    transition: 'background-color 0.3s ease'
+  }}>
     <div className="container">
       <h2 className="section-title">Resume</h2>
 
@@ -51,7 +70,7 @@ const Resume: React.FC = () => (
         />
       </div>
 
-      <p style={{ textAlign: 'center', marginTop: '1rem', fontSize: '0.85rem', opacity: 0.6 }}>
+      <p style={{ textAlign: 'center', marginTop: '1rem', fontSize: '0.85rem', color: 'inherit' }}>
         Can't see it?{' '}
         <a
           href={config.resumeViewer}
@@ -64,6 +83,7 @@ const Resume: React.FC = () => (
       </p>
     </div>
   </section>
-);
+  );
+};
 
 export default Resume;

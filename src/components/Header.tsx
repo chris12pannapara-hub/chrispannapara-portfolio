@@ -13,7 +13,17 @@ const Header: React.FC = () => {
 
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Close mobile menu when window is resized to desktop size
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setMenuOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -23,7 +33,11 @@ const Header: React.FC = () => {
     document.body.classList.toggle('dark');
   };
 
-  const navLinks = ['About', 'Experience', 'Projects', 'Resume', 'Contact'];
+  const navLinks = ['About', 'Experience', 'Education', 'Projects', 'Resume', 'Contact'];
+
+  const handleNavClick = () => {
+    setMenuOpen(false); // Close menu when nav item is clicked
+  };
 
   return (
     <header style={{
@@ -32,16 +46,16 @@ const Header: React.FC = () => {
       backdropFilter: scrolled ? 'blur(10px)' : 'none',
       borderBottom: scrolled ? `1px solid ${darkMode ? '#30363d' : '#e1e4e8'}` : 'none',
       transition: 'all 0.3s ease',
-      padding: '0 24px',
+      padding: '0 16px',
     }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
         {/* Logo */}
-        <a href="#home" style={{ fontSize: '1.3rem', fontWeight: 700, color: '#6c63ff' }}>
-          {config.name.split(' ')[0]}<span style={{ color: darkMode ? '#e6edf3' : '#212529' }}>.dev</span>
+        <a href="#home" style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', fontWeight: 700, color: '#6c63ff' }}>
+        <span style={{ color: darkMode ? '#e6edf3' : '#212529' }}>{config.name}</span>
         </a>
 
         {/* Desktop Nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <nav style={{ display: 'none' }} className="desktop-nav">
           {navLinks.map(link => (
             <a
               key={link}
@@ -50,6 +64,7 @@ const Header: React.FC = () => {
                 fontSize: '0.9rem', fontWeight: 500,
                 color: darkMode ? '#e6edf3' : '#212529',
                 transition: 'color 0.2s',
+                padding: '8px 12px',
               }}
               onMouseEnter={e => (e.currentTarget.style.color = '#6c63ff')}
               onMouseLeave={e => (e.currentTarget.style.color = darkMode ? '#e6edf3' : '#212529')}
@@ -61,13 +76,95 @@ const Header: React.FC = () => {
           {/* Theme Toggle */}
           <button onClick={toggleTheme} style={{
             background: 'none', border: `1px solid ${darkMode ? '#30363d' : '#e1e4e8'}`,
-            borderRadius: 8, padding: '6px 12px', cursor: 'pointer',
+            borderRadius: 8, padding: '8px 12px', cursor: 'pointer',
             color: darkMode ? '#e6edf3' : '#212529', fontSize: '1rem',
-          }}>
+            minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }} title="Toggle dark mode">
             {darkMode ? '☀️' : '🌙'}
           </button>
         </nav>
+
+        {/* Mobile Menu Controls */}
+        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }} className="mobile-controls">
+          {/* Theme Toggle Button */}
+          <button onClick={toggleTheme} style={{
+            background: 'none', border: `1px solid ${darkMode ? '#30363d' : '#e1e4e8'}`,
+            borderRadius: 8, padding: '8px', cursor: 'pointer',
+            color: darkMode ? '#e6edf3' : '#212529', fontSize: '1rem',
+            minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }} title="Toggle dark mode">
+            {darkMode ? '☀️' : '🌙'}
+          </button>
+
+          {/* Hamburger Menu Button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              fontSize: '1.5rem', color: darkMode ? '#e6edf3' : '#212529',
+              padding: '8px', minWidth: '44px', minHeight: '44px',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+            title="Toggle menu"
+          >
+            {menuOpen ? '✕' : '☰'}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <nav style={{
+          display: 'flex', flexDirection: 'column', gap: '12px',
+          padding: '16px', borderTop: `1px solid ${darkMode ? '#30363d' : '#e1e4e8'}`,
+          background: darkMode ? '#161b22' : '#ffffff',
+          animation: 'slideDown 0.3s ease-out',
+        }}>
+          {navLinks.map(link => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              onClick={handleNavClick}
+              style={{
+                fontSize: '1rem', fontWeight: 500,
+                color: darkMode ? '#e6edf3' : '#212529',
+                padding: '12px',
+                borderRadius: '8px',
+                transition: 'background 0.2s',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(108, 99, 255, 0.1)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+            >
+              {link}
+            </a>
+          ))}
+        </nav>
+      )}
+
+      <style>{`
+        @media (min-width: 768px) {
+          .desktop-nav {
+            display: flex !important;
+            align-items: center;
+            gap: 2rem;
+          }
+
+          .mobile-controls {
+            display: none !important;
+          }
+        }
+
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </header>
   );
 };
