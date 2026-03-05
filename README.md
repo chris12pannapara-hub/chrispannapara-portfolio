@@ -1,8 +1,10 @@
 # Portfolio Website for Recruiters
 Portfolio Website template
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+This project was bootstrapped with https://react.dev/learn/creating-a-react-app 
+```bash
+npx create-next-app@latest
+```     
 ## Available Scripts
 
 In the project directory, you can run:
