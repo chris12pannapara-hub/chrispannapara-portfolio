@@ -1,4 +1,3 @@
-import Education from "./components/Education";
 
 export const config = {
   name: 'Chris Pannapara',
