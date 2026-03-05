@@ -18,7 +18,7 @@ const Education: React.FC = () => {
   }, []);
 
   return (
-  <section id="experience" style={{ 
+  <section id="education" style={{ 
     background: isDark ? 'var(--bg-dark)' : '#f3f0ff',
     transition: 'background-color 0.3s ease'
   }}>
