@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/chrispannapara-portfolio/static/css/main.37732deb.css",
-    "main.js": "/chrispannapara-portfolio/static/js/main.ddd47ce7.js",
+    "main.js": "/chrispannapara-portfolio/static/js/main.c5d778fe.js",
     "index.html": "/chrispannapara-portfolio/index.html",
     "main.37732deb.css.map": "/chrispannapara-portfolio/static/css/main.37732deb.css.map",
-    "main.ddd47ce7.js.map": "/chrispannapara-portfolio/static/js/main.ddd47ce7.js.map"
+    "main.c5d778fe.js.map": "/chrispannapara-portfolio/static/js/main.c5d778fe.js.map"
   },
   "entrypoints": [
     "static/css/main.37732deb.css",
-    "static/js/main.ddd47ce7.js"
+    "static/js/main.c5d778fe.js"
   ]
 }
